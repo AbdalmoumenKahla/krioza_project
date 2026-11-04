@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_project_base_list" model="ir.ui.view">
+        <field name="name">project.base.list</field>
+        <field name="model">project.base</field>
+        <field name="arch" type="xml">
+            <list string="Project Base">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_project_base_form" model="ir.ui.view">
+        <field name="name">project.base.form</field>
+        <field name="model">project.base</field>
+        <field name="arch" type="xml">
+            <form string="Project Base">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_project_base" model="ir.actions.act_window">
+        <field name="name">Project Base</field>
+        <field name="res_model">project.base</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_project_base_root" name="Project Base" sequence="10"/>
+    <menuitem id="menu_project_base" name="Records" parent="menu_project_base_root" action="action_project_base" sequence="10"/>
+</odoo>

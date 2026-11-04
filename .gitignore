@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.log
+.env
+.vscode/
+.idea/
+
+# Odoo and PostgreSQL runtime data
+/data/
+postgres-data/
+odoo-data/
