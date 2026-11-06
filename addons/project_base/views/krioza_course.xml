@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Course List View -->
+    <record id="view_krioza_course_list" model="ir.ui.view">
+        <field name="name">krioza.course.list</field>
+        <field name="model">krioza.course</field>
+        <field name="arch" type="xml">
+            <list string="Courses">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="duration"/>
+            </list>
+        </field>
+    </record>
+
+
+    <!-- Course Form View -->
+    <record id="view_krioza_course_form" model="ir.ui.view">
+        <field name="name">krioza.course.form</field>
+        <field name="model">krioza.course</field>
+        <field name="arch" type="xml">
+            <form string="Course">
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"
+                                   placeholder="Course Name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="duration"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"
+                                   placeholder="Course description..."/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Window Action -->
+    <record id="action_krioza_courses" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">krioza.course</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <!-- Menu -->
+    <menuitem
+        id="menu_krioza_root"
+        name="Krioza"
+        sequence="10"
+    />
+
+    <menuitem
+        id="menu_krioza_courses"
+        name="Courses"
+        parent="menu_krioza_root"
+        action="action_krioza_courses"
+        sequence="10"
+    />
+
+</odoo>

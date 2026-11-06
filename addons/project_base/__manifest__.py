@@ -7,7 +7,9 @@
     "depends": ["base"],
     "data": [
         "security/ir.model.access.csv",
+        'views/krioza_course.xml',
         "views/project_base_views.xml",
+        
     ],
     "installable": True,
     "application": True,
