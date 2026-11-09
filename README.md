@@ -1,6 +1,6 @@
 # Odoo Project
 
-Starter Odoo 18 project with PostgreSQL and a mounted custom addon.
+Starter Odoo 20 project with PostgreSQL and a mounted custom addon.
 
 ## Requirements
 

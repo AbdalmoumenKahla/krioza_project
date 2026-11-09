@@ -20,7 +20,7 @@ services:
       retries: 10
 
   odoo:
-    image: odoo:18.0
+    image: odoo:20.0
     container_name: odoo_app
     restart: unless-stopped
 

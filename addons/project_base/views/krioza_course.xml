@@ -16,34 +16,33 @@
 
 
     <!-- Course Form View -->
+    <!-- Course Form View -->
     <record id="view_krioza_course_form" model="ir.ui.view">
         <field name="name">krioza.course.form</field>
         <field name="model">krioza.course</field>
         <field name="arch" type="xml">
             <form string="Course">
                 <sheet>
-
                     <div class="oe_title">
                         <h1>
-                            <field name="name"
-                                   placeholder="Course Name"/>
+                            <field name="name" placeholder="Course Name"/>
                         </h1>
                     </div>
 
                     <group>
                         <group>
                             <field name="code"/>
+                        </group>
+                        <group>
                             <field name="duration"/>
                         </group>
                     </group>
 
                     <notebook>
                         <page string="Description">
-                            <field name="description"
-                                   placeholder="Course description..."/>
+                            <field name="description" placeholder="Course description..."/>
                         </page>
                     </notebook>
-
                 </sheet>
             </form>
         </field>
@@ -59,18 +58,8 @@
 
 
     <!-- Menu -->
-    <menuitem
-        id="menu_krioza_root"
-        name="Krioza"
-        sequence="10"
-    />
+    <menuitem id="menu_krioza_root" name="Krioza" sequence="10" />
 
-    <menuitem
-        id="menu_krioza_courses"
-        name="Courses"
-        parent="menu_krioza_root"
-        action="action_krioza_courses"
-        sequence="10"
-    />
+    <menuitem id="menu_krioza_courses" name="Courses" parent="menu_krioza_root" action="action_krioza_courses" sequence="10" />
 
 </odoo>

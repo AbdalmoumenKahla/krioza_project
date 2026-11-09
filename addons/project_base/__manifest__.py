@@ -1,12 +1,12 @@
 {
     "name": "Project Base",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Tools",
     "summary": "Starter custom module for the project",
     "license": "LGPL-3",
     "depends": ["base"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         'views/krioza_course.xml',
         "views/project_base_views.xml",
         
