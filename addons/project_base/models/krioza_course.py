@@ -27,3 +27,27 @@ class KriozaCourse(models.Model):
         required=True,
         default=20
     )
+    level = fields.Selection(
+        [('beginner', 'Beginner'),
+         ('intermediate', 'Intermediate'),
+         ('advanced', 'Advanced')],
+        string='Course Level',
+        required=True,
+        default='beginner'
+    )
+    start_date = fields.Date(
+        string='Start Date',
+        required=True
+    )
+    end_date = fields.Date(
+        string='End Date',
+        required=True
+    )
+    syllabus = fields.Html(
+        string='Syllabus',
+        sanitize=True
+    )
+    online = fields.Boolean(
+        string='Online Course',
+        default=False
+    )

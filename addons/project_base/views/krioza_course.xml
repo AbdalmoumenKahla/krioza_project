@@ -10,12 +10,16 @@
                 <field name="name"/>
                 <field name="code"/>
                 <field name="duration"/>
+                <field name="online" widget="boolean_toggle"/>
+                <field name="level" widget="badge"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="description" optional="hide"/>
             </list>
         </field>
     </record>
 
 
-    <!-- Course Form View -->
     <!-- Course Form View -->
     <record id="view_krioza_course_form" model="ir.ui.view">
         <field name="name">krioza.course.form</field>
@@ -37,10 +41,26 @@
                             <field name="duration"/>
                         </group>
                     </group>
-
+                    <group>
+                        <field name="level" widget="radio" options="{'horizontal': true}"/>
+                    </group>
+                    <group>
+                        <field name="online" widget="checkbox"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                        </group>
+                        <group>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
                     <notebook>
                         <page string="Description">
                             <field name="description" placeholder="Course description..."/>
+                        </page>
+                        <page string="Syllabus">
+                            <field name="syllabus" placeholder="Course syllabus..."/>
                         </page>
                     </notebook>
                 </sheet>
