@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
+    <!-- Search -->
+    <record id="view_krioza_course_search" model="ir.ui.view">
+        <field name="name">krioza.course.search</field>
+        <field name="model">krioza.course</field>
+        <field name="arch" type="xml">
+            <search string="Search Courses">
+                <field name="name" filter_domain="[('name', 'ilike', self), ('code', 'ilike', self)]"/>
+                <field name="code"/>
+                <filter name="online" string="Online Courses" domain="[('online', '=', True)]"/>
+                <filter name="offline" string="Offline Courses" domain="[('online', '=', False)]"/>
+                <filter name="start_date" string="Starting Soon" domain="[('start_date', '&gt;=', context_today())]"/>
+            </search>
+        </field>
+    </record>
+
     <!-- Course List View -->
     <record id="view_krioza_course_list" model="ir.ui.view">
         <field name="name">krioza.course.list</field>
@@ -12,6 +27,7 @@
                 <field name="duration"/>
                 <field name="online" widget="boolean_toggle"/>
                 <field name="level" widget="badge"/>
+                <field name="category_id"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
                 <field name="description" optional="hide"/>
@@ -54,6 +70,9 @@
                         <group>
                             <field name="end_date"/>
                         </group>
+                    </group>
+                    <group>
+                        <field name="category_id" options="{'no_create': False, 'no_open': False}"/>
                     </group>
                     <notebook>
                         <page string="Description">

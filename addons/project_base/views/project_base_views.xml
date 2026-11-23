@@ -29,7 +29,23 @@
         <field name="res_model">project.base</field>
         <field name="view_mode">list,form</field>
     </record>
+    <record id="action_krioza_courses" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">krioza.course</field>
+        <field name="view_mode">list,form</field>
+    </record>
 
-    <menuitem id="menu_project_base_root" name="Project Base" sequence="10"/>
-    <menuitem id="menu_project_base" name="Records" parent="menu_project_base_root" action="action_project_base" sequence="10"/>
+    <record id="action_krioza_categories" model="ir.actions.act_window">
+        <field name="name">Categories</field>
+        <field name="res_model">krioza.category</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Krioza Submenu -->
+    <menuitem id="krioza_menu_root" name="Krioza" parent="menu_project_base_root" sequence="20"/>
+
+    <!-- Courses -->
+    <menuitem id="menu_krioza_courses" name="Courses" parent="krioza_menu_root" action="action_krioza_courses" sequence="10"/>
+    <!-- Categories -->
+    <menuitem id="menu_krioza_categories" name="Categories" parent="krioza_menu_root" action="action_krioza_categories" sequence="20"/>
 </odoo>

@@ -51,3 +51,14 @@ class KriozaCourse(models.Model):
         string='Online Course',
         default=False
     )
+    trainer_id = fields.Many2one(
+        'res.partner',
+        string='Trainer',
+        domain=[('is_trainer', '=', True)],
+        required=True
+    )
+    category_id = fields.Many2one(
+        'krioza.category',
+        string='Category',
+        required=True
+    )

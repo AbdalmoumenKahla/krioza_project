@@ -8,6 +8,7 @@
     "data": [
         "security/ir.access.csv",
         'views/krioza_course.xml',
+        'views/krioza_category.xml',
         "views/project_base_views.xml",
         
     ],
