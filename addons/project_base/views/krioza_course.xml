@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-    <!-- Search -->
+    <!--  Search view  -->
     <record id="view_krioza_course_search" model="ir.ui.view">
         <field name="name">krioza.course.search</field>
         <field name="model">krioza.course</field>
         <field name="arch" type="xml">
             <search string="Search Courses">
-                <field name="name" filter_domain="[('name', 'ilike', self), ('code', 'ilike', self)]"/>
+                <field name="name" string="Course" filter_domain="['|', ('name', 'ilike', self), ('code', 'ilike', self)]"/>
                 <field name="code"/>
-                <filter name="online" string="Online Courses" domain="[('online', '=', True)]"/>
-                <filter name="offline" string="Offline Courses" domain="[('online', '=', False)]"/>
-                <filter name="start_date" string="Starting Soon" domain="[('start_date', '&gt;=', context_today())]"/>
+                <field name="description"/>
+
+                <separator/>
+
+                <filter name="filter_online" string="Online" domain="[('online', '=', True)]"/>
+                <filter name="filter_offline" string="Offline" domain="[('online', '=', False)]"/>
+
+                <separator/>
+
+                <filter name="group_by_category" string="Category" context="{'group_by': 'category_id'}"/>
+                <filter name="group_by_trainer" string="Trainer" context="{'group_by': 'trainer_id'}"/>
+                <filter name="group_by_level" string="Level" context="{'group_by': 'level'}"/>
             </search>
         </field>
     </record>
-
     <!-- Course List View -->
     <record id="view_krioza_course_list" model="ir.ui.view">
         <field name="name">krioza.course.list</field>
@@ -52,27 +59,16 @@
                     <group>
                         <group>
                             <field name="code"/>
-                        </group>
-                        <group>
+                            <field name="level"/>
                             <field name="duration"/>
+                            <field name="online"/>
                         </group>
-                    </group>
-                    <group>
-                        <field name="level" widget="radio" options="{'horizontal': true}"/>
-                    </group>
-                    <group>
-                        <field name="online" widget="checkbox"/>
-                    </group>
-                    <group>
                         <group>
+                            <field name="trainer_id"/>
+                            <field name="category_id"/>
                             <field name="start_date"/>
-                        </group>
-                        <group>
                             <field name="end_date"/>
                         </group>
-                    </group>
-                    <group>
-                        <field name="category_id" options="{'no_create': False, 'no_open': False}"/>
                     </group>
                     <notebook>
                         <page string="Description">
@@ -87,18 +83,15 @@
         </field>
     </record>
 
-
-    <!-- Window Action -->
-    <record id="action_krioza_courses" model="ir.actions.act_window">
+    <!-- Action   -->
+    <record id="action_krioza_course" model="ir.actions.act_window">
         <field name="name">Courses</field>
         <field name="res_model">krioza.course</field>
         <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_krioza_course_search"/>
     </record>
 
-
-    <!-- Menu -->
-    <menuitem id="menu_krioza_root" name="Krioza" sequence="10" />
-
-    <menuitem id="menu_krioza_courses" name="Courses" parent="menu_krioza_root" action="action_krioza_courses" sequence="10" />
-
+    <!--  Menus -->
+    <menuitem id="menu_krioza_root" name="Krioza" sequence="10"/>
+    <menuitem id="menu_krioza_course" name="Courses" parent="menu_krioza_root" action="action_krioza_course" sequence="10"/>
 </odoo>
